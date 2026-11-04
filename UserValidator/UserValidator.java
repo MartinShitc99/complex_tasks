@@ -1,0 +1,28 @@
+package practice_13;
+
+public class UserValidator {
+    private boolean validationEnabled;
+
+    public void setValidationEnabled(boolean validationEnabled) {
+        this.validationEnabled = validationEnabled;
+    }
+
+    public void validate(User user) {
+
+        String name = user.getName();
+        String mail = user.getMail();
+
+        if (!validationEnabled) {
+            return;
+        }
+        if (user.getAge() > 18 || user.getAge() < 100) {
+            throw new InvalidUserException("Несовершеннолетний или Слишком старый");
+        }
+        if (user.getName() == null || user.getName().isEmpty() || !Character.isUpperCase(name.charAt(0))) {
+            return;
+        }
+        if (user.getMail() == null || !mail.contains("@") || !mail.contains(".")) {
+            throw new InvalidUserException("Некорректный формат почты");
+        }
+    }
+}
