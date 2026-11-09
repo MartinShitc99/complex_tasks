@@ -19,7 +19,7 @@ public class UserValidator {
             throw new InvalidUserException("Возраст должен быть от 18 до 100 лет");
         }
         if (user.getName() == null || user.getName().isEmpty() || !Character.isUpperCase(name.charAt(0))) {
-            return;
+            throw new InvalidUserException("Имя должно быть не пустым и начинаться с заглавной буквы");
         }
         if (user.getMail() == null || !mail.contains("@") || !mail.contains(".")) {
             throw new InvalidUserException("Некорректный формат почты");
