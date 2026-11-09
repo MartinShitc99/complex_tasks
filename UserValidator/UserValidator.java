@@ -16,7 +16,7 @@ public class UserValidator {
             return;
         }
         if (user.getAge() < 18 || user.getAge() > 100) {
-            throw new InvalidUserException("Несовершеннолетний или Слишком старый");
+            throw new InvalidUserException("Возраст должен быть от 18 до 100 лет");
         }
         if (user.getName() == null || user.getName().isEmpty() || !Character.isUpperCase(name.charAt(0))) {
             return;
