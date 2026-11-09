@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class TaskService<T> {
     List<Task<T>> tasks = new ArrayList<>();
 
-    public void addTask(Task<T> task) {
+    public synchronized void addTask(Task<T> task) {
         for (Task<T> existingTask : tasks) {
             if (existingTask.getId().equals(task.getId())) {
                 return;
