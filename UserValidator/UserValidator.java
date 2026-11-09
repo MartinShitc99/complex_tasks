@@ -15,7 +15,7 @@ public class UserValidator {
         if (!validationEnabled) {
             return;
         }
-        if (user.getAge() > 18 || user.getAge() < 100) {
+        if (user.getAge() < 18 || user.getAge() > 100) {
             throw new InvalidUserException("Несовершеннолетний или Слишком старый");
         }
         if (user.getName() == null || user.getName().isEmpty() || !Character.isUpperCase(name.charAt(0))) {
