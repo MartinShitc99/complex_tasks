@@ -16,8 +16,9 @@ public class InventoryService {
     }
 
     public void addProduct(Product product) {
-        if (this.isOpen == false) {
+        if (!this.isOpen) {
             System.out.println("Склад закрыт");
+            return;
         }
 
         String cat = product.getCategory();
